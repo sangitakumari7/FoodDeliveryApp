@@ -19,8 +19,7 @@ const RestaurantMenu = () => {
   return resInfo === null ? (
   <Shimmer/>) : (
     <div className='menu'>
-        <h1>{resInfo?.cards[0]?.card?.card?.imageGridCards?.info[0]?.action?.text}</h1>
-        <h2>{resInfo?.cards[0]?.card?.card?.imageGridCards?.info[0]?.action?.type}</h2>
+        <h1>{resInfo?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info?.name}</h1>
         <ul>
             <li>Pizza</li>
             <li>Burger</li>
