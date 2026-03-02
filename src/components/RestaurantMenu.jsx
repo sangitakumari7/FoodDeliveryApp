@@ -20,7 +20,7 @@ const RestaurantMenu = () => {
   <Shimmer/>) : (
     <div className='menu'>
         <h1>{resInfo?.cards[0]?.card?.card?.imageGridCards?.info[0]?.action?.text}</h1>
-        <h2>Menu</h2>
+        <h2>{resInfo?.cards[0]?.card?.card?.imageGridCards?.info[0]?.action?.type}</h2>
         <ul>
             <li>Pizza</li>
             <li>Burger</li>
