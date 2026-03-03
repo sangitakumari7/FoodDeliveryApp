@@ -16,10 +16,23 @@ const RestaurantMenu = () => {
         setResInfo(json.data);
     }
 
-  return resInfo === null ? (
-  <Shimmer/>) : (
+    if (resInfo === null) return<Shimmer/>;
+
+    const restaurantInfo = resInfo?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info;
+
+    const { name, cuisines, costForTwo } = restaurantInfo || {};
+
+    const {menuItems} = resInfo?.cards[4]?.card?.card?. gridElements?.infoWithStyle?.info[0]?.action?.text;
+    console.log(menuItems);
+
+
+  return  (
     <div className='menu'>
-        <h1>{resInfo?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info?.name}</h1>
+        <h1>{name}</h1>
+        <p>{cuisines?.join(', ')}  - {costForTwo}</p>
+        <hr/>
+        <p>{menuItems}</p>
+        <h2>Menu</h2>
         <ul>
             <li>Pizza</li>
             <li>Burger</li>
