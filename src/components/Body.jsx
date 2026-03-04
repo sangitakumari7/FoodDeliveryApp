@@ -2,9 +2,11 @@ import RestaurantCard from "./RestaurantCard";
 import resList from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body = () =>{
   const [listofRestaurants, setlistofRestaurants] = useState([]);
+  const [filteredRestaurant, setFilteredRestaurant] = useState([]);
 
   const [searchText, setSearchText] = useState("");
 
@@ -18,7 +20,8 @@ const Body = () =>{
       const json = await data.json();
 
       console.log(json);
-      setlistofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+      setlistofRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
+      setFilteredRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || []);
       
     }
 
@@ -30,18 +33,20 @@ const Body = () =>{
           <input type="text" className="text-search-box" value={searchText} onChange={(e)=>{setSearchText(e.target.value)}}/>
           <button onClick={()=> {
             const filteredList = listofRestaurants.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
-            setlistofRestaurants(filteredList);
+            setFilteredRestaurant(filteredList);
           }}>Search</button>
         </div>
         <button className='search-btn' onClick={()=> {
           const filteredList = listofRestaurants.filter((res) => res.info.avgRating > 4);
-          setlistofRestaurants(filteredList);
+          setFilteredRestaurant(filteredList);
         }}>
           Top Rated Restaurants</button>
       </div>
       <div className='res-container'>
-        {listofRestaurants.map((restaurant) => (
-          <RestaurantCard key={restaurant.info.id} resData={restaurant} />
+        {filteredRestaurant.map((restaurant) => (
+          <Link key={restaurant.info.id} to={`/restaurant/${restaurant.info.id}`}>
+            <RestaurantCard resData={restaurant} />
+          </Link>
         ))}
         
       </div>
