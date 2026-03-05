@@ -1,8 +1,12 @@
+import User from "./User";
+import UserClass from "./UserClass";
 const About = ()=>{
     return (
         <div>
             <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate. Doloribus, quisquam. Voluptas, voluptate. Doloribus, quisquam. Voluptas, voluptate. Doloribus, quisquam. Voluptas, voluptate. Doloribus, quisquam.</p>
+            <p>This is all about us.</p>
+            <User name={"Sangeeta Kumari"}/>
+            <UserClass name={"Sangeeta Kumari"} />
         </div>
     )
 }
