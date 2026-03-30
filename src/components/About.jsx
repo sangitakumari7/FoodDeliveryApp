@@ -4,11 +4,11 @@ import { Component } from "react";
 class About extends Component {
   render() {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-orange-100 via-red-100 to-pink-100 flex items-center justify-center px-6 py-10">
+      <div className="min-h-screen bg-linear-to-br from-orange-100 via-red-100 to-pink-100 flex items-center justify-center px-6 py-10">
         
         <div className="max-w-4xl w-full bg-white rounded-3xl shadow-2xl p-10">
           
-          <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-orange-500 to-red-500 text-transparent bg-clip-text mb-6">
+          <h1 className="text-4xl font-extrabold text-center bg-linear-to-r from-orange-500 to-red-500 text-transparent bg-clip-text mb-6">
             About Us
           </h1>
 
@@ -20,7 +20,7 @@ class About extends Component {
 
           <div className="grid md:grid-cols-2 gap-6 mb-10">
             
-            <div className="bg-gradient-to-r from-orange-400 to-red-400 text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-300">
+            <div className="bg-linear-to-r from-orange-400 to-red-400 text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-300">
               <h2 className="text-2xl font-bold mb-2">🚀 Our Mission</h2>
               <p>
                 To connect people with the best restaurants and provide a seamless
@@ -28,7 +28,7 @@ class About extends Component {
               </p>
             </div>
 
-            <div className="bg-gradient-to-r from-pink-400 to-purple-400 text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-300">
+            <div className="bg-linear-to-r from-pink-400 to-purple-400 text-white p-6 rounded-2xl shadow-lg hover:scale-105 transition duration-300">
               <h2 className="text-2xl font-bold mb-2">💡 Our Vision</h2>
               <p>
                 To become the most loved food delivery platform with quality,

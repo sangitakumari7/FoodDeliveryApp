@@ -1,10 +1,10 @@
 const Contact = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-red-100 to-pink-100 flex items-center justify-center px-6 py-10">
+    <div className="min-h-screen bg-linear-to-br from-orange-100 via-red-100 to-pink-100 flex items-center justify-center px-6 py-10">
       
       <div className="max-w-4xl w-full bg-white rounded-3xl shadow-2xl p-10">
         
-        <h1 className="text-4xl font-extrabold text-center bg-gradient-to-r from-orange-500 to-red-500 text-transparent bg-clip-text mb-6">
+        <h1 className="text-4xl font-extrabold text-center bg-linear-to-r from-orange-500 to-red-500 text-transparent bg-clip-text mb-6">
           Contact Us
         </h1>
 
@@ -16,7 +16,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-8">
           
           {/* Contact Info */}
-          <div className="bg-gradient-to-r from-orange-400 to-red-400 text-white p-6 rounded-2xl shadow-lg">
+          <div className="bg-linear-to-r from-orange-400 to-red-400 text-white p-6 rounded-2xl shadow-lg">
             <h2 className="text-2xl font-bold mb-4">📍 Get in Touch</h2>
             <p className="mb-2">📧 Email: sangitaroy4829@gmail.com</p>
             <p className="mb-2">📞 Phone: +91 62030 57193</p>
@@ -46,7 +46,7 @@ const Contact = () => {
 
             <button
               type="submit"
-              className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-3 rounded-xl font-semibold hover:scale-105 transition duration-300"
+              className="bg-linear-to-r from-orange-500 to-red-500 text-white py-3 rounded-xl font-semibold hover:scale-105 transition duration-300"
             >
               Send Message 🚀
             </button>

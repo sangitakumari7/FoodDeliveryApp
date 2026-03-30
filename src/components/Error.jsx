@@ -4,11 +4,11 @@ const Error = () => {
   const err = useRouteError();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 via-red-100 to-pink-100 flex items-center justify-center px-6 py-10">
+    <div className="min-h-screen bg-linear-to-br from-orange-100 via-red-100 to-pink-100 flex items-center justify-center px-6 py-10">
       
       <div className="max-w-xl w-full bg-white rounded-3xl shadow-2xl p-10 text-center">
         
-        <h1 className="text-6xl font-extrabold bg-gradient-to-r from-orange-500 to-red-500 text-transparent bg-clip-text mb-4">
+        <h1 className="text-6xl font-extrabold bg-linear-to-r from-orange-500 to-red-500 text-transparent bg-clip-text mb-4">
           Oops!
         </h1>
 
@@ -27,7 +27,7 @@ const Error = () => {
         </div>
 
         <Link to="/">
-          <button className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition duration-300 shadow-md">
+          <button className="bg-linear-to-r from-orange-500 to-red-500 text-white px-6 py-3 rounded-xl font-semibold hover:scale-105 transition duration-300 shadow-md">
             Go Back Home 🏠
           </button>
         </Link>

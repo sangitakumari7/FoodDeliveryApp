@@ -7,7 +7,7 @@ const User = ({ name }) => {
   }, []);
 
   return (
-    <div className="flex justify-center items-center min-h-[60vh] bg-gradient-to-br from-purple-100 via-white to-purple-200 p-6">
+    <div className="flex justify-center items-center min-h-[60vh] bg-linear-to-br from-purple-100 via-white to-purple-200 p-6">
       
       <div className="bg-white rounded-3xl shadow-xl p-8 w-80 text-center border border-purple-100">
         

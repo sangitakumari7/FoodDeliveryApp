@@ -40,7 +40,7 @@ const Body = () => {
   return listofRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
-    <div className="bg-gradient-to-br from-gray-100 via-white to-gray-200 min-h-screen">
+    <div className="bg-linear-to-br from-gray-100 via-white to-gray-200 min-h-screen">
       <div className="px-6 py-8">
         <div className="backdrop-blur-lg bg-white/60 border border-white/30 shadow-xl rounded-3xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex w-full md:w-1/2 bg-white rounded-full shadow-inner overflow-hidden">
@@ -52,7 +52,7 @@ const Body = () => {
               onChange={(e) => setSearchText(e.target.value)}
             />
             <button
-              className="px-8 py-3 bg-gradient-to-r from-orange-500 to-red-500 text-white font-medium hover:opacity-90 transition"
+              className="px-8 py-3 bg-linear-to-r from-orange-500 to-red-500 text-white font-medium hover:opacity-90 transition"
               onClick={() => {
                 const filteredList = listofRestaurants.filter((res) =>
                   res.info.name
@@ -67,7 +67,7 @@ const Body = () => {
           </div>
 
           <button
-            className="px-8 py-3 rounded-full bg-gradient-to-r from-yellow-400 to-orange-500 text-white font-semibold shadow-lg hover:scale-105 transition"
+            className="px-8 py-3 rounded-full bg-linear-to-r from-yellow-400 to-orange-500 text-white font-semibold shadow-lg hover:scale-105 transition"
             onClick={() => {
               const filteredList = listofRestaurants.filter(
                 (res) => res.info.avgRating > 4

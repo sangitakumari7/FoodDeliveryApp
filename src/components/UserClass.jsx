@@ -34,7 +34,7 @@ class UserClass extends React.Component {
     const { login, location, id, avatar_url, html_url } = userInfo;
 
     return (
-      <div className="flex justify-center items-center min-h-[70vh] bg-gradient-to-br from-blue-100 via-white to-blue-200 p-6">
+      <div className="flex justify-center items-center min-h-[70vh] bg-linear-to-br from-blue-100 via-white to-blue-200 p-6">
         
         <div className="bg-white rounded-3xl shadow-xl p-8 w-80 text-center border border-blue-100">
           
