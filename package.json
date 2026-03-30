@@ -12,10 +12,16 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "parcel": "^2.16.4"
+    "init": "^0.1.2",
+    "npx": "^10.2.2",
+    "parcel": "^2.16.4",
+    "postcss": "^8.5.8",
+    "tailwind": "^4.0.0",
+    "tailwindcss": "^4.2.2"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.11.2",
+    "@tailwindcss/postcss": "^4.2.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-redux": "^9.2.0",
