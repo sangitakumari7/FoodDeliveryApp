@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard,{isRestaurantOpen} from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -8,6 +8,10 @@ const Body = () => {
   const [listofRestaurants, setlistofRestaurants] = useState([]);
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
+
+  console.log("Body Rendered", listofRestaurants);
+  
+  const OpenRestaurantCard = isRestaurantOpen(RestaurantCard);
 
   useEffect(() => {
     fetchData();
@@ -33,7 +37,7 @@ const Body = () => {
   if (!onlineStatus)
     return (
       <div className="flex justify-center items-center h-screen text-red-500 text-2xl font-semibold">
-        🔴 No Internet Connection
+        🔴 No Internet Connection 
       </div>
     );
 
@@ -87,7 +91,8 @@ const Body = () => {
             to={`/restaurant/${restaurant.info.id}`}
             className="transform hover:-translate-y-2 hover:scale-[1.02] transition duration-300"
           >
-            <RestaurantCard resData={restaurant} />
+
+            {restaurant.info.isOpen ? <OpenRestaurantCard resData={restaurant} /> : <RestaurantCard resData={restaurant} />}
           </Link>
         ))}
       </div>
