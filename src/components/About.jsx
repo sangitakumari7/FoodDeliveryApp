@@ -1,5 +1,7 @@
 import UserClass from "./UserClass";
 import { Component } from "react";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
 
 class About extends Component {
   render() {
@@ -37,6 +39,12 @@ class About extends Component {
             </div>
 
           </div>
+          <div className="bg-gray-50 p-6 rounded-2xl shadow-inner mb-10">
+  LoggedInUser:
+  <UserContext.Consumer>
+    {({ loggedInUser }) => <h1>{loggedInUser}</h1>}
+  </UserContext.Consumer>
+</div>
 
           <div className="bg-gray-50 p-6 rounded-2xl shadow-inner">
             <h2 className="text-2xl font-semibold mb-4 text-center">

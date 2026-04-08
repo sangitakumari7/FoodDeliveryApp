@@ -1,11 +1,17 @@
 import { LOGO_URL } from "../utils/constants";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnineStatus";
+import UserContext from "../utils/UserContext";
+
 
 const Header = () => {
   const [btnName, setBtnName] = useState("Login");
+ 
   const onlineStatus = useOnlineStatus();
+
+   const { loggedInUser } = useContext(UserContext);
+   console.log("Header Rendered", loggedInUser);
 
   return (
     <div className="sticky top-0 z-50 bg-linear-to-r from-orange-500 to-red-500 shadow-lg">
@@ -77,6 +83,9 @@ const Header = () => {
           >
             {btnName}
           </button>
+          <li className="px-4 py-2 text-white font-medium">
+            {loggedInUser}
+          </li>
         </ul>
       </div>
     </div>

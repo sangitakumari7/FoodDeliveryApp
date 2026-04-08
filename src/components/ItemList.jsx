@@ -3,10 +3,11 @@ import { CDN_URL } from "../utils/constants";
 import { addItem } from "../utils/CartSlice";
 
 const ItemList = ({ items }) => {
-  const dispatch = useDispatch();
-  const handleAddItem = (item) => {
-    dispatch(addItem(item));
-  };
+  // const dispatch = useDispatch();
+  // const handleAddItem = (item) => {
+  //   dispatch(addItem(item));
+  // };
+  
   return (
     <div>
       {items.map((item, index) => (

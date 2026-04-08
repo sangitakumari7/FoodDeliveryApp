@@ -1,8 +1,9 @@
 import RestaurantCard,{isRestaurantOpen} from "./RestaurantCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnineStatus";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [listofRestaurants, setlistofRestaurants] = useState([]);
@@ -41,48 +42,63 @@ const Body = () => {
       </div>
     );
 
+    const {loggedInUser, setUserName} = useContext(UserContext);
+
   return listofRestaurants.length === 0 ? (
     <Shimmer />
   ) : (
     <div className="bg-linear-to-br from-gray-100 via-white to-gray-200 min-h-screen">
-      <div className="px-6 py-8">
-        <div className="backdrop-blur-lg bg-white/60 border border-white/30 shadow-xl rounded-3xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex w-full md:w-1/2 bg-white rounded-full shadow-inner overflow-hidden">
-            <input
-              type="text"
-              className="flex-1 px-5 py-3 outline-none text-gray-700 bg-transparent"
-              placeholder="Search for restaurants, food..."
-              value={searchText}
-              onChange={(e) => setSearchText(e.target.value)}
-            />
-            <button
-              className="px-8 py-3 bg-linear-to-r from-orange-500 to-red-500 text-white font-medium hover:opacity-90 transition"
-              onClick={() => {
-                const filteredList = listofRestaurants.filter((res) =>
-                  res.info.name
-                    .toLowerCase()
-                    .includes(searchText.toLowerCase())
-                );
-                setFilteredRestaurant(filteredList);
-              }}
-            >
-              Search
-            </button>
-          </div>
+     <div className="px-6 py-8">
+  <div className="backdrop-blur-xl bg-white/70 border border-white/30 shadow-2xl rounded-3xl p-6 flex flex-col lg:flex-row items-center justify-between gap-6">
 
-          <button
-            className="px-8 py-3 rounded-full bg-linear-to-r from-yellow-400 to-orange-500 text-white font-semibold shadow-lg hover:scale-105 transition"
-            onClick={() => {
-              const filteredList = listofRestaurants.filter(
-                (res) => res.info.avgRating > 4
-              );
-              setFilteredRestaurant(filteredList);
-            }}
-          >
-            ⭐ Top Rated Restaurants
-          </button>
-        </div>
-      </div>
+    {/* Search Bar */}
+    <div className="flex w-full lg:w-1/2 bg-white rounded-full shadow-md overflow-hidden border border-gray-200 focus-within:ring-2 focus-within:ring-orange-400 transition">
+      <input
+        type="text"
+        className="flex-1 px-5 py-3 outline-none text-gray-700 bg-transparent placeholder-gray-400"
+        placeholder="Search for restaurants, food..."
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+      />
+      <button
+        className="px-6 py-3 bg-linear-to-r from-orange-500 to-red-500 text-white font-semibold hover:opacity-90 transition-all duration-200"
+        onClick={() => {
+          const filteredList = listofRestaurants.filter((res) =>
+            res.info.name.toLowerCase().includes(searchText.toLowerCase())
+          );
+          setFilteredRestaurant(filteredList);
+        }}
+      >
+        🔍 Search
+      </button>
+    </div>
+
+    {/* Top Rated Button */}
+    <button
+      className="px-6 py-3 rounded-full bg-linear-to-r from-yellow-400 to-orange-500 text-white font-semibold shadow-md hover:scale-105 hover:shadow-lg transition-all duration-200"
+      onClick={() => {
+        const filteredList = listofRestaurants.filter(
+          (res) => res.info.avgRating > 4
+        );
+        setFilteredRestaurant(filteredList);
+      }}
+    >
+      ⭐ Top Rated
+    </button>
+
+    {/* User Input */}
+    <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-full shadow-md border border-gray-200">
+      <label className="text-gray-600 font-medium">User:</label>
+      <input
+        className="outline-none bg-transparent text-gray-700 placeholder-gray-400"
+        value={loggedInUser}
+        onChange={(e) => setUserName(e.target.value)}
+        placeholder="Enter name"
+      />
+    </div>
+
+  </div>
+</div>
 
       <div className="px-6 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {filteredRestaurant.map((restaurant) => (

@@ -1,25 +1,35 @@
-import React , {lazy, Suspense} from 'react';
-import ReactDom from 'react-dom/client';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
+import ReactDOM from 'react-dom/client';
 import Header from './components/Header.jsx';
 import Body from './components/Body.jsx';
 import Contact from './components/Contact.jsx';
 import Error from './components/Error.jsx'; 
 import RestaurantMenu from './components/RestaurantMenu.jsx';
-import { createBrowserRouter, Outlet, RouterProvider} from 'react-router-dom';
-
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import UserContext from './utils/UserContext';
 
 const Grocery = lazy(() => import('./components/Grocery.jsx'));
-
 const About = lazy(() => import('./components/About.jsx')); 
 
 const AppLayout = () => {
+  const [userName, setUserName] = useState();
+
+  useEffect(() => {
+    const data = {
+      name: "Sangeeta Kumari",
+    };
+    setUserName(data.name);
+  }, []);
+
   return (
-    <div className='app'>
-      <Header/>
-      <Outlet/>
-    </div>
-  )
-}
+    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+      <div className='app'>
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.Provider>
+  );
+};
 
 
 const appRouter = createBrowserRouter([
@@ -61,6 +71,6 @@ const appRouter = createBrowserRouter([
 ]);
 
 
-const root = ReactDom.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<RouterProvider router={appRouter}/>);
