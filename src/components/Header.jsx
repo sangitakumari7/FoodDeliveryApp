@@ -3,6 +3,7 @@ import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 
 const Header = () => {
@@ -11,7 +12,10 @@ const Header = () => {
   const onlineStatus = useOnlineStatus();
 
    const { loggedInUser } = useContext(UserContext);
-   console.log("Header Rendered", loggedInUser);
+ 
+  const cartItem = useSelector((store) => store.cart.items);
+  console.log(cartItem);
+
 
   return (
     <div className="sticky top-0 z-50 bg-linear-to-r from-orange-500 to-red-500 shadow-lg">
@@ -66,11 +70,11 @@ const Header = () => {
           <li className="relative flex items-center gap-1 cursor-pointer group">
             <span className="text-lg">🛒</span>
             <span className="group-hover:text-yellow-200 transition duration-300">
-              Cart
+             <Link to="/cart">Cart</Link>
             </span>
 
             <span className="absolute -top-2 -right-3 bg-white text-red-500 text-[10px] px-1.5 py-px rounded-full font-bold">
-              2
+              {cartItem.length}
             </span>
           </li>
 
