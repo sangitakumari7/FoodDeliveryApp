@@ -64,4 +64,17 @@ The application utilizes **Redux Toolkit (RTK)** to manage the complexity of the
 - **`useSelector`**: Subscribes components like the `Header` to the store to dynamically update the cart item count badge in real-time.
 - **`useDispatch`**: Allows components like `ItemList` and `Cart` to dispatch actions to modify the cart (e.g., adding an item to the list or clearing out all items).
 
+# Types of Testing(developer)
+- Unit Testing
+- Integratin Testing
+- Ens to End Testing -e2e testing
+
+# Setting up Testing  our app
+- Install React Testing Library
+- Installed Jest
+- Installed Babel dependencies
+- Configure Babel
+- Configure Parcel config file to disable default babel transpilation
+
+
 *Note: This project uses the Swiggy Public API for educational purposes.*

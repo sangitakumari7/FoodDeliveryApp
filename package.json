@@ -5,14 +5,19 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "keywords": [],
   "author": "Sangeeta Kumari",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@testing-library/react": "^16.3.2",
+    "babel-jest": "^30.3.0",
     "init": "^0.1.2",
+    "jest": "^30.3.0",
     "npx": "^10.2.2",
     "parcel": "^2.16.4",
     "postcss": "^8.5.8",
