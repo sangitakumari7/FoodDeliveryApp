@@ -75,6 +75,11 @@ The application utilizes **Redux Toolkit (RTK)** to manage the complexity of the
 - Installed Babel dependencies
 - Configure Babel
 - Configure Parcel config file to disable default babel transpilation
+- Jest --npx create-jest
+- Install jsdon library
+- Install  @babel/preset-react - to make JSX work in test cases
+- Include @babel/preset-react inside my babel config
+- npm i-D @testing-library/jest-dom
 
 
 *Note: This project uses the Swiggy Public API for educational purposes.*
