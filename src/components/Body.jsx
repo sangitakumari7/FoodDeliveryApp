@@ -10,7 +10,7 @@ const Body = () => {
   const [filteredRestaurant, setFilteredRestaurant] = useState([]);
   const [searchText, setSearchText] = useState("");
 
-  console.log("Body Rendered", listofRestaurants);
+  //console.log("Body Rendered", listofRestaurants);
   
   const OpenRestaurantCard = isRestaurantOpen(RestaurantCard);
 
