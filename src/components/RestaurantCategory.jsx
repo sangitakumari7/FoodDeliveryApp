@@ -13,6 +13,7 @@ const RestaurantCategory = ({ data, showItems, setShowIndex }) => {
         <div
           className="flex justify-between font-bold cursor-pointer"
           onClick={handleClick}
+          data-testid="category-header"
         >
           <span>
             {title} ({itemCards?.length})

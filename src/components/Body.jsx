@@ -25,9 +25,16 @@ const Body = () => {
 
     const json = await data.json();
 
-    const restaurants =
-      json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-        ?.restaurants || [];
+    // Dynamically find the restaurants array
+    const cards = json?.data?.cards || [];
+    let restaurants = [];
+    for (const card of cards) {
+      const res = card?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+      if (res) {
+        restaurants = res;
+        break;
+      }
+    }
 
     setlistofRestaurants(restaurants);
     setFilteredRestaurant(restaurants);
@@ -55,6 +62,7 @@ const Body = () => {
     <div className="flex w-full lg:w-1/2 bg-white rounded-full shadow-md overflow-hidden border border-gray-200 focus-within:ring-2 focus-within:ring-orange-400 transition">
       <input
         type="text"
+        data-testid="searchInput"
         className="flex-1 px-5 py-3 outline-none text-gray-700 bg-transparent placeholder-gray-400"
         placeholder="Search for restaurants, food..."
         value={searchText}
@@ -62,6 +70,7 @@ const Body = () => {
       />
       <button
         className="px-6 py-3 bg-linear-to-r from-orange-500 to-red-500 text-white font-semibold hover:opacity-90 transition-all duration-200"
+        data-testid="searchBtn"
         onClick={() => {
           const filteredList = listofRestaurants.filter((res) =>
             res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -105,6 +114,7 @@ const Body = () => {
           <Link
             key={restaurant.info.id}
             to={`/restaurant/${restaurant.info.id}`}
+            data-testid="resCard"
             className="transform hover:-translate-y-2 hover:scale-[1.02] transition duration-300"
           >
 
